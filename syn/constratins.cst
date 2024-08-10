@@ -1,0 +1,6 @@
+IO_LOC "o_led" L16;
+IO_PORT "o_led" IO_TYPE=LVCMOS33;
+IO_LOC "clk" H11;
+IO_PORT "clk" IO_TYPE=LVCMOS33;
+IO_LOC "i_button" T10;
+IO_PORT "i_button" IO_TYPE=LVCMOS33;
