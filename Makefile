@@ -4,7 +4,7 @@ CST = ./syn/*.cst
 IMPL = ./impl/pnr/project.fs
 
 TOP_TB = top_tb
-SIM = ./sim/*.v
+SIM = ./sim/*.sv
 BIN = ./sim/$(TOP_TB).vvp
 
 LOADER = ../openFPGALoader
@@ -21,7 +21,7 @@ sim: $(BIN)
 	vvp $(BIN) && mv ./*.vcd ./sim/.
 
 $(BIN): $(SRC) $(SIM)
-	iverilog -o $(BIN) -s $(TOP_TB) $(SRC) $(SIM)
+	iverilog -o $(BIN) -g2012 -s $(TOP_TB) $(SRC) $(SIM)
 
 prog:
 	$(LOADER) -b tangprimer20k $(IMPL)

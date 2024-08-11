@@ -5,8 +5,8 @@ module top_tb();
 
 proj_module mod_inst (
     .clk(tb_clk),
-    .data_in(),
-    .data_out()
+    .data_in(r_in),
+    .data_out(w_out)
 );
 
 always
@@ -16,8 +16,10 @@ end
 
 initial
 begin
-    #100
+    #100 //nanoseconds
+    repeat(3) @(posedge tb_clk); //clk cycles
     ...
+    assert(w_out == 1'b1);
     $finish;
 end
 
