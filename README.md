@@ -16,7 +16,7 @@ When you flash to volatile memory "SRAM" (without`-f`) there's one method, when 
 The default firmware will get to 20-35% and say `mpsse_readError`. For this we need to update the firmware on the BL702
 
 **Steps to update the Firmware on the BL702**
-1. Disconnect everything and remove the sodimm (just in case). Also make sure you disconnect the raspberry pi, as both of these will be `/dev/ttyACM0` on Linux.
+1. Disconnect everything and remove the sodimm (just in case).
 2. There's a `702-BOOT` button near the HDMI. Hold that as you plug the USB in. You should now see the BL702 in DFU as `/dev/ttyACM0`. If you don't see `/dev/ttyACM0` stop here, there's an issue somewhere.
 3. Install the BL flashing utility from pip `pip3 install bflb-mcu-tool`. It will by default install to `$HOME/.local/bin`. Either add that to your path or call `~/.local/bin/bflb-mcu-tool`
 4. With the BL702 in DFU call `bflb-mcu-tool --chipname=bl702 --port=/dev/ttyACM0 --xtal=32M --firmware=usb2uartjtag_bl702_uart_fix.bin`
